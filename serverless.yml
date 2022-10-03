@@ -1,0 +1,23 @@
+org: ed1epam
+app: shop-react-redux-cloudfront
+frameworkVersion: "3"
+service: 'my-shop-backend'
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+package:
+   individually: true
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: ed-epam
+  region: eu-west-1
+# functions
+functions:
+  getProductsList:
+    handler: services/getProductsList/index.handler
+    events:
+      - http:
+          method: GET
+          path: products/
+          cors: true
