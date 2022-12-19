@@ -3,8 +3,15 @@ app: shop-react-redux-cloudfront
 frameworkVersion: "3"
 service: 'my-shop-backend'
 plugins:
+  - serverless-auto-swagger
   - serverless-esbuild
   - serverless-offline
+custom: 
+    autoswagger: 
+        host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
+        basePath: '/dev/'
+        typefiles:
+          - './api/types/products.ts'
 package:
    individually: true
 provider:
@@ -21,6 +28,10 @@ functions:
           method: GET
           path: products/
           cors: true
+          responses: 
+              200: 
+                  description: 'An array of Products'
+                  bodyType: 'Products'
   getProductById:
     handler: api/services/Products/getProductById/index.handler
     events:
@@ -28,3 +39,7 @@ functions:
           method: GET
           path: products/{id}
           cors: true
+          responses: 
+              200:
+                  description: 'A single product with specified id'
+                  bodyType: 'Product'

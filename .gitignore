@@ -108,3 +108,6 @@ dist
 
 # vscode workspace settings
 .vscode
+
+# swagger - auto generated files
+swagger/

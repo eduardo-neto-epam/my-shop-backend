@@ -19,6 +19,7 @@
   "homepage": "https://github.com/eduardo-neto-epam/my-shop-backend#readme",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.106",
+    "serverless-auto-swagger": "^2.12.0",
     "serverless-esbuild": "^1.33.0",
     "serverless-offline": "^11.0.1",
     "typescript": "^4.8.4"
