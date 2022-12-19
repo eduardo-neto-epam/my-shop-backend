@@ -2,39 +2,39 @@ import { Product } from '../types';
 ;
 export const products: Product[] = [
     {
-      description: "Short Product Description1",
+      description: "The most amazing Gamer Mouse",
       id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
       price: 24,
-      title: "ProductOne",
+      title: "Gamer Mouse",
     },
     {
-      description: "Short Product Description7",
+      description: "The perfect sound.",
       id: "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
       price: 15,
-      title: "ProductTitle",
+      title: "MP3 Player",
     },
     {
-      description: "Short Product Description2",
+      description: "Memories recorder.",
       id: "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
       price: 23,
-      title: "Product",
+      title: "Webcam",
     },
     {
-      description: "Short Product Description4",
+      description: "Store for life.",
       id: "7567ec4b-b10c-48c5-9345-fc73348a80a1",
       price: 15,
-      title: "ProductTest",
+      title: "Hard Drive",
     },
     {
-      description: "Short Product Description1",
+      description: "Sound and contort.",
       id: "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
       price: 23,
-      title: "Product2",
+      title: "Headphones",
     },
     {
-      description: "Short Product Description7",
+      description: "It sticks to your memory",
       id: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
       price: 15,
-      title: "ProductName",
+      title: "Memory stick",
     },
   ];

@@ -15,9 +15,16 @@ provider:
 # functions
 functions:
   getProductsList:
-    handler: services/getProductsList/index.handler
+    handler: api/services/Products/getProductsList/index.handler
     events:
       - http:
           method: GET
           path: products/
+          cors: true
+  getProductById:
+    handler: api/services/Products/getProductById/index.handler
+    events:
+      - http:
+          method: GET
+          path: products/{id}
           cors: true
