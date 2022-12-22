@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
-import { products } from '../../../Mocks/products';
+import { products } from '../../../mocks/data/products';
 import { apiResponses } from '../../../apiResponses';
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -16,7 +16,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
         if (selectedProduct) {
             return apiResponses._200(selectedProduct);
         }
-        return apiResponses._400({ message: 'Invalid id.' });
+        return apiResponses._404({ message: 'Product not found' });
     } catch (err) {
         return apiResponses._400({message: 'Error: Unable to get product by id.'});
     }

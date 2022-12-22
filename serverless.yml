@@ -8,10 +8,15 @@ plugins:
   - serverless-offline
 custom: 
     autoswagger: 
-        host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
+        #common options
+        generateSwaggerOnDeploy: true
+        useStage: false
+        swaggerPath: 'swagger'
         basePath: '/dev/'
         typefiles:
           - './api/types/products.ts'
+        #Production - comment host if using sls offline 
+        #host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
 package:
    individually: true
 provider:

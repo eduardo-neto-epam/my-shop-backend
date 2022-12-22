@@ -1,24 +1,25 @@
-import { Product } from "../types"
-
-const headers = {
-    "Access-Control-Allow-Headers" : "Content-Type",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-}
+import { Product, Products } from "../types"
 
 export const apiResponses = {
-    _200: (body: Product[] | Product) => {
+    _setResponse(statusCode = 502, data = {}) {
         return {
-            statusCode: 200,
-            headers,
-            body: JSON.stringify(body, null, 2),
+            headers: {
+                "Access-Control-Allow-Headers" : "Content-Type",
+                "Content-Type" : "application/json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*",
+            },
+            statusCode,
+            body: JSON.stringify(data),
         }
     },
-    _400: (body: {[key: string]: unknown}) => {
-        return {
-            statusCode: 400,
-            headers,
-            body: JSON.stringify(body, null, 2),
-        }
-    }
+    _200(body: Products | Product) {
+        return this._setResponse(200, body)
+    },
+    _400(body: {[key: string]: unknown}) {
+        return this._setResponse(400, body)
+    },
+    _404(body: {[key: string]: unknown}) {
+        return this._setResponse(404, body)
+    },
 }

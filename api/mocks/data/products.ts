@@ -1,5 +1,5 @@
-import { Product } from '../types';
-;
+import { Product } from '../../types';
+
 export const products: Product[] = [
     {
       description: "The most amazing Gamer Mouse",
