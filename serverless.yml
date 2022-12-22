@@ -15,8 +15,8 @@ custom:
         basePath: '/dev/'
         typefiles:
           - './api/types/products.ts'
-        #Production - comment host if using sls offline 
-        #host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
+        #Production - comment host if using sls offline and uncomment before commit changes
+        host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
 package:
    individually: true
 provider:
