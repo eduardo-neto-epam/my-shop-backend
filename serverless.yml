@@ -1,0 +1,50 @@
+org: ed1epam
+app: shop-react-redux-cloudfront
+frameworkVersion: "3"
+service: 'my-shop-backend'
+plugins:
+  - serverless-auto-swagger
+  - serverless-esbuild
+  - serverless-offline
+custom: 
+    autoswagger: 
+        #common options
+        generateSwaggerOnDeploy: true
+        useStage: false
+        swaggerPath: 'swagger'
+        basePath: '/dev/'
+        typefiles:
+          - './api/types/products.ts'
+        #Production - comment host if using sls offline and uncomment before commit changes
+        host: 'xxpvdpuwni.execute-api.eu-west-1.amazonaws.com'
+package:
+   individually: true
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: ed-epam
+  region: eu-west-1
+# functions
+functions:
+  getProductsList:
+    handler: api/services/Products/getProductsList/index.handler
+    events:
+      - http:
+          method: GET
+          path: products/
+          cors: true
+          responses: 
+              200: 
+                  description: 'An array of Products'
+                  bodyType: 'Products'
+  getProductById:
+    handler: api/services/Products/getProductById/index.handler
+    events:
+      - http:
+          method: GET
+          path: products/{id}
+          cors: true
+          responses: 
+              200:
+                  description: 'A single product with specified id'
+                  bodyType: 'Product'
